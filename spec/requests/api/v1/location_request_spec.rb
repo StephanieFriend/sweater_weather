@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Location API' do
+RSpec.describe 'Location API', :vcr do
   it 'can call out and retrieve all needed info' do
     get '/api/v1/forecast?location=denver,co'
 

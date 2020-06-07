@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Geolocator Service' do
+RSpec.describe 'Geolocator Service', :vcr do
   it 'can receive city and state and return coords' do
     google = GoogleServices.get_json("Denver, CO")
 
