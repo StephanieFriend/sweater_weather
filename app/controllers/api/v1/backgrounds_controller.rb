@@ -1,6 +1,7 @@
-class BackgroundsController
+class Api::V1::BackgroundsController < ApplicationController
 
-  def index
+
+def index
     location = {:location =>
                     Photo.return_image(params[:location])
     }
