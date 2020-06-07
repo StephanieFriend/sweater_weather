@@ -2,7 +2,7 @@ class HourlyWeather
 
   def initialize(weather_info)
     @hour = timestamp_to_hour(weather_info[:dt])
-    @temp = kelvin_to_fahrenheit(weather_info[:temp])
+    @temp = weather_info[:temp]
     @description = weather_info[:weather][0][:main]
   end
 
@@ -21,9 +21,5 @@ class HourlyWeather
     else
       hour + "AM"
     end
-  end
-
-  def kelvin_to_fahrenheit(kelvin)
-    (((kelvin - 273.15) * (9/5)) + 32).round(2)
   end
 end

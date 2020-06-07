@@ -4,8 +4,8 @@ class DailyWeather
     @day = Time.at(weather_info[:dt]).strftime('%A')
     @description = weather_info[:weather][0][:main]
     @precip = calc_precip(weather_info)
-    @high_temp = kelvin_to_fahrenheit(weather_info[:temp][:max])
-    @low_temp = kelvin_to_fahrenheit(weather_info[:temp][:min])
+    @high_temp = weather_info[:temp][:max]
+    @low_temp = weather_info[:temp][:min]
   end
 
   def self.day_forecast(weather_info)
@@ -21,9 +21,5 @@ class DailyWeather
     return air_drops + weather_info[:rain] if weather_info[:rain]
     return air_drops + weather_info[:snow] if weather_info[:snow]
     air_drops
-  end
-
-  def kelvin_to_fahrenheit(kelvin)
-    (((kelvin - 273.15) * (9/5)) + 32).round(2)
   end
 end

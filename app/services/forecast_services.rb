@@ -5,6 +5,7 @@ class ForecastServices
       req.params[:appid] = ENV['FORECAST_API_KEY']
       req.params[:lat] = lat
       req.params[:lon] = lon
+      req.params[:units] = 'imperial'
     end
     JSON.parse(response.body, symbolize_names: true)
   end
