@@ -1,7 +1,7 @@
 class HourlyWeather
 
   def initialize(weather_info)
-    @hour = timestamp_to_hour(weather_info[:dt])
+    @hour = Time.at(weather_info[:dt]).strftime('%I %p')
     @temp = weather_info[:temp]
     @description = weather_info[:weather][0][:main]
   end
@@ -12,14 +12,5 @@ class HourlyWeather
       hour_array << HourlyWeather.new(hour)
     end
     hour_array
-  end
-
-  def timestamp_to_hour(timestamp)
-    hour = Time.at(timestamp).strftime('%H')
-    if hour.to_i > 12
-      (hour.to_i - 12).to_s + "PM"
-    else
-      hour + "AM"
-    end
   end
 end

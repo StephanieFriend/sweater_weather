@@ -5,7 +5,7 @@ class MainContent
     @high_temp = weather_info[:daily][0][:temp][:max]
     @low_temp = weather_info[:daily][0][:temp][:min]
     @current_description = weather_info[:current][:weather][0][:main]
-    @date_time = Time.at(weather_info[:current][:dt]).to_datetime
+    @date_time = Time.at(weather_info[:current][:dt]).strftime('%I:%M %p, %B %d')
   end
 
   def self.main_forecast(weather_info)
