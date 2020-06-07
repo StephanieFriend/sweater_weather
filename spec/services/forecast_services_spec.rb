@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Forecast Service' do
+RSpec.describe 'Forecast Service', :vcr do
   it 'can receive coords and return forecast by city' do
     forecast = ForecastServices.get_json('39.7392358', '-104.990251')
 
