@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'figaro'
 gem 'faraday'
 gem 'json'
+gem 'fast_jsonapi'
 
 group :development, :test do
   gem 'rspec-rails'
