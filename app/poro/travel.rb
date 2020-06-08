@@ -22,7 +22,11 @@ class Travel
     }
   end
 
-  def forecast_info(info)
-    binding.pry
+  def forecast_info(weather_info)
+    forecast = MainContent.new(weather_info)
+    {
+        :summary => forecast.current_description,
+        :temperature => forecast.current_temp
+    }
   end
 end
