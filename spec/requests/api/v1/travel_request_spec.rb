@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Travel API' do
+RSpec.describe 'Foodie API' do
   before do
     VCR.configure do |c|
       @previous_allow_http_connections = c.allow_http_connections_when_no_cassette?

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
       post '/users', to: 'users#create'
 
-      get '/foodie', to: 'travels#show'
+      get '/foodie', to: 'foodie#show'
     end
   end
 end
