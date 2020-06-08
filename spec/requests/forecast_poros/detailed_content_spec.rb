@@ -7,20 +7,21 @@ RSpec.describe 'Location API', :vcr do
     expect(response).to be_successful
 
     json = JSON.parse(response.body, symbolize_names: true)
+    details = json[:data][:attributes][:weather_forecast][:details]
 
     expect(json.class).to eq(Hash)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :description
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :sunrise
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :sunset
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :feels_like
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :humidity
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :visibility
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0]).to have_key :uv_index
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:description].class).to eq(String)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:sunrise].class).to eq(String)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:sunset].class).to eq(String)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:feels_like].class).to eq(Float)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:humidity].class).to eq(Integer)
-    expect(json[:location][:data][:attributes][:weather_forecast][:details][0][:uv_index].class).to eq(Float)
+    expect(details[0]).to have_key :description
+    expect(details[0]).to have_key :sunrise
+    expect(details[0]).to have_key :sunset
+    expect(details[0]).to have_key :feels_like
+    expect(details[0]).to have_key :humidity
+    expect(details[0]).to have_key :visibility
+    expect(details[0]).to have_key :uv_index
+    expect(details[0][:description].class).to eq(String)
+    expect(details[0][:sunrise].class).to eq(String)
+    expect(details[0][:sunset].class).to eq(String)
+    expect(details[0][:feels_like].class).to eq(Float)
+    expect(details[0][:humidity].class).to eq(Integer)
+    expect(details[0][:uv_index].class).to eq(Float)
   end
 end

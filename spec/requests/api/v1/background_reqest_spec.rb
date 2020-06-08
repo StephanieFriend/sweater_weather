@@ -9,6 +9,6 @@ RSpec.describe 'Photo API', :vcr do
     json = JSON.parse(response.body, symbolize_names: true)
 
     expect(json.class).to eq(Hash)
-    expect(json[:location][:data][:attributes][:return_image]).to have_key :photo
+    expect(json[:data][:attributes][:return_image]).to have_key :photo
   end
 end
