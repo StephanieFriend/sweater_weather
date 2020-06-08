@@ -2,7 +2,7 @@ class ZomatoServices
 
   def self.get_json(lat, lon, type)
     response = Faraday.get('https://developers.zomato.com/api/v2.1/search') do |req|
-      req.header[:user_key] = ENV['ZOMATO_API_KEY']
+      req.headers[:user_key] = ENV['ZOMATO_API_KEY']
       req.params[:count] = 1
       req.params[:lat] = lat
       req.params[:lon] = lon
