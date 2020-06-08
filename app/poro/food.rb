@@ -7,10 +7,10 @@ class Food
     @zip = food_info[:restaurants][0][:restaurant][:location][:zipcode]
   end
 
-  # def self.address_formatting(food_info)
-  #   {
-  #       :name => @name,
-  #       :address => "#{@address}" + ", " + "#{@city} #{@zip}"
-  #   }
-  # end
+  def address_formatting
+    {
+        :name => @name,
+        :address => "#{@address}" + ", " + "#{@city} #{@zip}"
+    }
+  end
 end

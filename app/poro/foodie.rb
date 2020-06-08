@@ -14,8 +14,13 @@ class Foodie
     {
         :travel_time =>  Distance.new(@direction),
         :forecast =>  forecast_info(@weather_info),
-        :restaurant => Food.new(@food)
+        :restaurant => address_formatting(@food)
     }
+  end
+
+  def address_formatting(food_info)
+    food_info = Food.new(@food)
+    food_info.address_formatting
   end
 
   def forecast_info(weather_info)

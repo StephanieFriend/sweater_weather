@@ -47,37 +47,3 @@ RSpec.describe 'Foodie API' do
     expect(travel_info[:restaurant][:zip].class).to eq(String)
   end
 end
-
-# You will build an endpoint that will retrieve food and forecast information for a destination city.
-#     ​
-# Your endpoint should follow this format:
-# `GET /api/v1/foodie?start=denver,co&end=pueblo,co&search=italian`
-#                                                                               ​
-#  Your API will return:
-# - the end city
-# - estimated travel time
-# - the name and address of a restaurant that matches the search parameter
-# - the forecast at your time of arrival
-# ​
-# Your response should be similar to the format below:
-#                                                   ​
-# ```
-# {
-#   "data": {
-#     "id": "null",
-#     "type": "foodie",
-#     "attributes": {
-#       "end_location": "pueblo,co",
-#       "travel_time": "1 hours 48 min",
-#       "forecast": {
-#         "summary": "Cloudy with a chance of meatballs",
-#         "temperature": "83"
-#       },
-#       "restaurant": {
-#         "name": "Angelo's Pizza Parlor",
-#         "address": "105 E Riverwalk, Pueblo 81003"
-#       }
-#     }
-#   }
-# }
-# ```
