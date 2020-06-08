@@ -9,6 +9,7 @@ class Travel
     @google = GoogleServices.get_json(@ending)
     @google_json = Google.new(@google)
     @food = ZomatoServices.get_json(@google_json.lat, @google_json.lng, search)
+    @weather_info = ForecastServices.get_json(@google_json.lat, @google_json.lng)
     binding.pry
   end
 
@@ -16,7 +17,12 @@ class Travel
     {
         :end_location => @ending,
         :travel_time =>  Distance.new(@direction),
+        :forecast =>  forecast_info(@weather_info),
         :restaurant => Food.new(@food)
     }
+  end
+
+  def forecast_info(info)
+    binding.pry
   end
 end

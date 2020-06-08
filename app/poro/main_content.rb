@@ -1,4 +1,5 @@
 class MainContent
+  attr_reader :current_temp, :current_description
 
   def initialize(weather_info)
     @current_temp = weather_info[:current][:temp]
