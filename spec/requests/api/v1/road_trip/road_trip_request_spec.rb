@@ -1,19 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Road Trip API' do
-  before do
-    VCR.configure do |c|
-      @previous_allow_http_connections = c.allow_http_connections_when_no_cassette?
-      c.allow_http_connections_when_no_cassette = true
-    end
-  end
-
-  after do
-    VCR.configure do |c|
-      c.allow_http_connections_when_no_cassette = @previous_allow_http_connections
-    end
-  end
-
+RSpec.describe 'Road Trip API', :vcr do
   it 'Can receive proper credentials and return trip info' do
     post '/api/v1/users', params: {
         email: "whatever@example.com",
