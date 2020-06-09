@@ -15,4 +15,10 @@ class User < ApplicationRecord
       'Oops, it broke.'
     end
   end
+
+  def self.login_error
+    {
+        :error_message => "Username or Password is incorrect"
+    }
+  end
 end
