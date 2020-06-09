@@ -4,6 +4,8 @@ class User < ApplicationRecord
   validates :password, presence: true, if: :password
   validates :password_confirmation, presence: true
 
+  has_many :road_trips
+
   def validate
     if password != password_confirmation
       'Passwords gotta match!'
