@@ -2,8 +2,15 @@ class Api::V1::RoadTripController < ApplicationController
 
   def create
     user = User.find_by(api_key: road_trip_params[:api_key])
+
+    error_message = "Must use a valid API key for request"
     if user
-      render :json => RoadTripSerializer.new(RoadTrip.create(road_trip_params))
+      road_trip = user.road_trips.create(road_trip_params)
+      render :json => RoadTripSerializer.new(RoadTripResponse.new(road_trip.id, road_trip.origin, road_trip.destination, nil)),
+             status: :ok
+    else
+      render :json => RoadTripSerializer.new(RoadTripResponse.new(nil, nil, nil, error_message)),
+             status: :unauthorized
     end
   end
 
