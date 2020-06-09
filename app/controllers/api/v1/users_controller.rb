@@ -2,12 +2,10 @@ class Api::V1::UsersController < ApplicationController
 
   def create
     user1 = User.new(user_params)
-    user1.update(api_key: SecureRandom.hex)
-    if !user1.save
-      render :json => UserSerializer.new(user1), status: :bad_request
-    else
-      render :json => UserSerializer.new(user1), status: :created
-    end
+    error_message = user1.validate
+    status = user1.update(api_key: SecureRandom.hex) ? :created : :bad_request
+    render :json => UserResponseSerializer.new(UserResponse.new(user1.id, user1.email, user1.api_key, error_message)),
+           status: status
   end
 
   private

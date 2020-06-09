@@ -4,15 +4,15 @@ class User < ApplicationRecord
   validates :password, presence: true, if: :password
   validates :password_confirmation, presence: true
 
-  def error_message
+  def validate
     if password != password_confirmation
       'Passwords gotta match!'
     elsif User.find_by(email: email)
       'Someone is already using your email?'
-    elsif email.empty? || password.empty?
+    elsif !email || email.empty? || !password || password.empty?
       'Sorry man. Need that email and password'
     else
-      'Oops, it broke.'
+      nil
     end
   end
 end
