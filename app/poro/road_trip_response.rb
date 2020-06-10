@@ -6,10 +6,11 @@ class RoadTripResponse
     @origin = origin
     @destination = destination
     @error_message = error_message
-    @direction = DirectionServices.get_json(origin, destination)
-    @google = GoogleServices.get_json(destination)
-    @google_json = Google.new(@google)
-    @weather_info = ForecastServices.get_json(@google_json.lat, @google_json.lng)
+  end
+
+  def initialize_external_data(direction, google)
+    @direction = direction
+    @weather_info = ForecastServices.get_json(google.lat, google.lng)
   end
 
   def road_trip
