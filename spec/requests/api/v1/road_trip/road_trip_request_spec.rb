@@ -33,11 +33,11 @@ RSpec.describe 'Road Trip API', :vcr do
 
     json = JSON.parse(response.body, symbolize_names: true)
 
-    expect(json[:data][:attributes]).to have_key :origin
-    expect(json[:data][:attributes][:origin]).to eq("Denver,CO")
+    expect(json[:data][:attributes][:road_trip]).to have_key :origin
+    expect(json[:data][:attributes][:road_trip][:origin]).to eq("Denver,CO")
 
-    expect(json[:data][:attributes]).to have_key :destination
-    expect(json[:data][:attributes][:destination]).to eq("Pueblo,CO")
+    expect(json[:data][:attributes][:road_trip]).to have_key :destination
+    expect(json[:data][:attributes][:road_trip][:destination]).to eq("Pueblo,CO")
   end
 
   it 'Can receive improper credentials and return error message' do
