@@ -32,6 +32,7 @@ gem 'faraday'
 gem 'json'
 gem 'fast_jsonapi'
 gem 'bcrypt'
+gem 'travis'
 
 group :development, :test do
   gem 'rspec-rails'
