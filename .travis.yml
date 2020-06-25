@@ -6,7 +6,7 @@ rbenv:
     chrome: stable
   dist: xenial
   before_install:
-    - yes | gem update --system --force
+#    - yes | gem update --system --force
     - gem install bundler
 - script:
     - yarn
