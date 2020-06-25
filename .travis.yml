@@ -6,16 +6,16 @@ addons:
   chrome: stable
 dist: xenial
 before_install:
-  - yes | gem update --system --force
-  - gem install bundler
+- yes | gem update --system --force
+- gem install bundler
 script:
-  - yarn
-  - bundle exec rails db:{create,migrate} RAILS_ENV=test
-  - bundle exec rspec
+- yarn
+- bundle exec rails db:{create,migrate} RAILS_ENV=test
+- bundle exec rspec
 deploy:
   provider: heroku
   api_key:
-    secure: fPl16DzFXtERITMqz2uINoJOca8tYN+fh71yM93oepYEWDOB0QUV4VM9AsVRBqvuZEcTWqFZdb8+9tVdYG1e1s6EQJdRjfDN9aKNnsu+4ng/3eLtBwGtvxHMlxJah9q+yJHogTZgt3sJBIqOVNmj2ieowCUvq9H4k1xeHMGeeau27aJEgFihLXaHXRoIkng9U02QvPD9+ufhUp7C1pC4RNgjW0iCwINlZCy4oazFGl/5gRhsgEhcnLj7zIW+vn1pWAa8cFvK7RrZrXwi/qZD1kDsejelAtKSlcUSmgqhXzYQaL9n2+0OOitMrqd6zBBH7U5ZYrI+rrOg/Sdk4ycxHJh2hE8kk+1ifkf92UR3OrKqIDCQk5+KDKuR0TRwwKUn0CW6Rp3a/LZDtCBrsHepVIdroHwAOCjqxWPbWYcTBSHnuqoWL1Q2Ph8mugYTn9cT4HMVGQlgaQXKUzqD+zzvL3Nq7+2jkxh4WCp1vMNZLENiiBY1IIpNo1Ibo3XXscFqqRFVDXKedcBZMnRL7xAmmTLM53koAW99iB0wdi6Kx7PYB/y+PxtYUZSTYIshvajQs3yA8qvqUMnKl6qlHOfa462aixEZR51VM1jMAZxzLvE/4i2nmsMLH/UiR2E5S1A0V5rpNiW+Sxyar9chIu/6QImpPyDELhJ+xJVBm1Qqs60=
+    secure: OA9JPqS3zSQ3z2q05Xv9WDwD7PP5nzPRA13rWUSH7uINcgx3RBuPHTDZuZdUbDwiHPD3vZxtWglM1jQEQq9++YdwPoiqN7WPklNEfVAYY+nhB1n8CKDIJqYjk3drPn3RKJk3T8ACwfRrrRIiDfXfdm91kMLzhQ5dwPAMqby0JBo0O9hw7J/wGHQTGXGN5mpugcIO8t+QijGnxcmWqfJoIi7/Z/A/k6TI32CtiDNNcopAJYKOo4kQVfIXRji2Rr2RP6A2XLRY2PdG4VZ9c71XESmJIEIVf4IQAwWyO+N+oscozN1b7DtF50vb3LYFOFPO1W49sKMT4vEg85pr0aPLxHIChmlpiFWkMEpMULVvyPvi2Qd7X8sVq2nPV8XflwNE4Iwq4Xpy5o6hgVWEGoxXrmh3c5TljNxOOrPu0+TRSS+O6Jdo6Z3xfCBWe8DyFbiIa6ZvcHSfDJtXWHOCXteMk+CHWWG2yPqL9ka5OuvHU3bREoIJ2meCJbbT92FAtuWZf+4RcGPGyXZvEPoGnDA0u5agfJq6MIiR1ObtNsJp64m3dYnVKaQMqiFen8p7F4Xv++t5lBBRAwVUzGxUgq8tX1w73TFsJuR/TcasoAvr3eZXm0M9DkV4dv4olXJN1LsKiCnEbQMy0EiCbbxuumLDVhdoY2Y0198yRByUkQ0yZds=
   app: hidden-inlet-79770
   on:
     repo: StephanieFriend/sweater_weather
