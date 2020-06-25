@@ -207,6 +207,8 @@ GEM
       launchy (~> 2.1)
       pusher-client (~> 0.4)
       typhoeus (~> 0.6, >= 0.6.8)
+    travis-lint (2.0.0)
+      json
     typhoeus (0.8.0)
       ethon (>= 0.8.0)
     tzinfo (1.2.7)
@@ -246,6 +248,7 @@ DEPENDENCIES
   shoulda-matchers
   simplecov
   travis
+  travis-lint
   tzinfo-data
   vcr
   webmock

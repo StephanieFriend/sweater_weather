@@ -33,6 +33,7 @@ gem 'json'
 gem 'fast_jsonapi'
 gem 'bcrypt'
 gem 'travis'
+gem 'travis-lint'
 
 group :development, :test do
   gem 'rspec-rails'
